@@ -32,21 +32,38 @@ window.onload = function() {
     //   formatDefault.author = element.data.author;
     //   formatDefault.date = element.data.created_utc;
     //   formatDefault.upvotes = element.data.ups;
-    //   // formatDefault.image = element.data.preview.images[0].source.url;
+    //   formatDefault.image = element.data.preview.images[0].source.url;
     //   mlsArray.push(formatDefault);
-    //   // console.log(formatDefault);
-    //   return formatDefault;
+      // console.log(formatDefault);
+      // return formatDefault;
     // });
+    // console.log(formatDefault);
     
     defaultResponse.data.children.forEach(function(element, index, array) {
-      // console.log(element);
+      console.log(element);
       let newArticle = document.createElement("li");
       feed.appendChild(newArticle);
+
+      let imgContainer = document.createElement("div");
+      imgContainer.className = "img-container";
+      newArticle.appendChild(imgContainer);
+      let newImg = document.createElement("img");
+      
+      if (element.data.preview) { // if image provided set newImg
+        newImg.setAttribute("src", element.data.preview.images[0].source.url);
+        
+      } else { // if no image provided get fallback
+        newImg.setAttribute("src", "assets/placeholder.jpg");
+      }
+      imgContainer.appendChild(newImg);
+
       let newTitle = document.createElement("a");
       newTitle.className = "title";
       newTitle.setAttribute("href", element.data.url);
       newTitle.innerText = element.data.title;
       newArticle.appendChild(newTitle);
+
+          
 
     });
 

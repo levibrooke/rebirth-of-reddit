@@ -1,3 +1,9 @@
+html, body {
+  box-sizing: border-box; }
+
+* {
+  box-sizing: inherit; }
+
 body {
   margin: 0; }
 
@@ -40,3 +46,15 @@ footer {
     flex-shrink: 1;
     flex-basis: auto;
     margin: 12px 12px 12px 12px; }
+    #feed li .img-container {
+      height: 168px; }
+      #feed li .img-container img {
+        max-width: 100%;
+        max-height: 168px;
+        object-fit: cover; }
+    #feed li a {
+      margin: 20px 0 10px;
+      display: inline-block;
+      overflow: hidden;
+      line-height: 20px;
+      max-height: 40px; }
