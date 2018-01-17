@@ -4,7 +4,7 @@ Super Awesome Co. has just been asked to concept a new Reddit theme. This is sup
 
 ## Game Plan
 
-Our game plan is to use their subreddit API to create a Reddit clone with our own theme (See the layouts in the layouts directory). I know we don't have a lot of time but we also need to demonstrate that we are up to par with our stack and code quality. We can get the JSON feed of any sub-reddit by changing adding a `.json` extension to the URL.
+Our game plan is to use their subreddit API to create a Reddit clone with our own theme (See the layouts in the layouts directory). I know we don't have a lot of time but we also need to demonstrate that we are up to par with our stack and code quality. We can get the JSON feed of any sub-reddit by adding a `.json` extension to the URL.
 
 `Ex. http://www.reddit.com/r/javascript -> http://www.reddit.com/r/javascript.json`
 
