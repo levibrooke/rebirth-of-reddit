@@ -14,13 +14,36 @@ nav {
 main {
   background-image: url(/assets/bg.jpg);
   background-repeat: repeat;
-  padding: 42px;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-article {
-  background-color: #fff;
-  height: 400px;
-  width: 324px;
-  padding: 24px;
-  // margin: 
+footer {
+  height: 52px;
+  background-color: #222;
+}
+
+#feed {
+list-style: none;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+width: 696px;
+margin: 0;
+padding: 0;
+
+  li {
+    background-color: #fff;
+    height: 400px;
+    width: 276px;
+    padding: 24px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    margin: 12px 12px 12px 12px;
+  }
 }

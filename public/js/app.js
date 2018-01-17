@@ -4,8 +4,12 @@ document.body.appendChild(header);
 let nav = document.createElement("nav");
 document.body.appendChild(nav);
 let main = document.createElement("main");
-main.id = "feed";
 document.body.appendChild(main);
+let ul = document.createElement("ul");
+ul.id = "feed";
+main.appendChild(ul);
+let footer = document.createElement("footer");
+document.body.appendChild(footer);
 
 window.onload = function() {
 
@@ -17,22 +21,34 @@ window.onload = function() {
 
   function defaultFeed() {
     let defaultResponse = JSON.parse(this.response);
-    console.log(defaultResponse.data.children);
+    // console.log(defaultResponse);
+    
+    // let formatDefault = {};
+    // let mlsArray = [];
+
+    // defaultResponse.data.children.map(function(element, index, array) {
+    //   formatDefault.title = element.data.title;
+    //   formatDefault.url = element.data.url;
+    //   formatDefault.author = element.data.author;
+    //   formatDefault.date = element.data.created_utc;
+    //   formatDefault.upvotes = element.data.ups;
+    //   // formatDefault.image = element.data.preview.images[0].source.url;
+    //   mlsArray.push(formatDefault);
+    //   // console.log(formatDefault);
+    //   return formatDefault;
+    // });
     
     defaultResponse.data.children.forEach(function(element, index, array) {
-        console.log(element);
-
-        let newArticle = document.createElement("article");
-        feed.appendChild(newArticle);
-
-        let newDiv = document.createElement("div");
-        newDiv.className = "title";
-        newDiv.innerText = element.data.title;
-        newArticle.appendChild(newDiv);
+      // console.log(element);
+      let newArticle = document.createElement("li");
+      feed.appendChild(newArticle);
+      let newTitle = document.createElement("a");
+      newTitle.className = "title";
+      newTitle.setAttribute("href", element.data.url);
+      newTitle.innerText = element.data.title;
+      newArticle.appendChild(newTitle);
 
     });
-
-
 
     // response.data.children is an array
     // [0].data.preview.images[0].source.url // images in an array
