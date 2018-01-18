@@ -10,11 +10,53 @@ body {
 header {
   background-color: #fff;
   height: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+  }
+
+  button {
+    border: 2px solid #a84a2b;
+    position: absolute;
+    display: block;
+    right: 20px;
+    top: 16px;
+    padding: 0 6px 2px;
+  }
+  button::after {
+    content: '\002B';
+    color: #a84a2b;
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+header::after {
+  content: "";
+  background-image: url(/assets/header_bg.svg);
+  background-repeat: no-repeat;
+  max-width: 100%;
+  width: 410px;
+  height: 65px;
+  position: absolute;
+  display: block;
+  top: 28px;
 }
 
 nav {
   height: 42px;
   background-color: #222;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: #777;
+    margin: 0 10px;
+  }
 }
 
 main {
