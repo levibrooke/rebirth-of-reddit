@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body {
   box-sizing: border-box; }
 
@@ -40,7 +41,7 @@ footer {
   #feed li {
     background-color: #fff;
     height: 400px;
-    width: 276px;
+    width: 324px;
     padding: 24px;
     flex-grow: 0;
     flex-shrink: 1;
@@ -58,3 +59,15 @@ footer {
       overflow: hidden;
       line-height: 20px;
       max-height: 40px; }
+    #feed li p {
+      margin: 0 0 10px; }
+      #feed li p .author::after {
+        content: '•';
+        padding: 0 5px; }
+      #feed li p .date::after {
+        content: '•';
+        padding: 0 5px; }
+    #feed li .description {
+      overflow: hidden;
+      line-height: 20px;
+      max-height: 60px; }

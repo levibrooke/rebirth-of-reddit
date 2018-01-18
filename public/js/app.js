@@ -51,7 +51,6 @@ window.onload = function() {
       
       if (element.data.preview) { // if image provided set newImg
         newImg.setAttribute("src", element.data.preview.images[0].source.url);
-        
       } else { // if no image provided get fallback
         newImg.setAttribute("src", "assets/placeholder.jpg");
       }
@@ -63,17 +62,32 @@ window.onload = function() {
       newTitle.innerText = element.data.title;
       newArticle.appendChild(newTitle);
 
-          
+      let newMeta = document.createElement("p");
+      newMeta.className = "post-meta";
+      newArticle.appendChild(newMeta);
+      let newAuthor = document.createElement("span");
+      newAuthor.className = "author";
+      newAuthor.innerHTML = "by " + element.data.author;
+      newMeta.appendChild(newAuthor);
+      let newDate = document.createElement("span");
+      newDate.className = "date";
+      newDate.innerText = "posted " + element.data.created_utc;
+      newMeta.appendChild(newDate);
+      let newUpvotes = document.createElement("span");
+      newUpvotes.className = "upvotes";
+      newUpvotes.innerText = element.data.ups + " upvotes";
+      newMeta.appendChild(newUpvotes);
+      let newDescription = document.createElement("p");
+      newDescription.className = "description";
+
+      if (element.data.selftext === "") {
+        newDescription.innerText = "Link shared from: " + element.data.domain;
+      } else {
+      newDescription.innerText = element.data.selftext;
+      }
+      newArticle.appendChild(newDescription);          
 
     });
-
-    // response.data.children is an array
-    // [0].data.preview.images[0].source.url // images in an array
-    // [0].data.title
-    // [0].data.url
-    // [0].data.author
-    // [0].data.created_utc
-    // [0].data.ups
   }
 
 }();
