@@ -30,37 +30,15 @@ function buildStructure() {
   navFour.id = "board-four";
   nav.appendChild(navFour);
   let main = document.createElement("main"); // create main
+  main.id = "main";
   container.appendChild(main);
-  let ul = document.createElement("ul"); // create ul
-  ul.id = "feed";
-  main.appendChild(ul);
+  // let ul = document.createElement("ul"); // create ul
+  // ul.id = "feed";
+  // main.appendChild(ul);
   let footer = document.createElement("footer"); // create footer
   container.appendChild(footer);
   body.appendChild(container);
 }
-
-// let header = document.createElement("header");
-// document.body.appendChild(header);
-// let logo = document.createElement("img");
-// logo.setAttribute("src", "assets/logo.svg");
-// header.appendChild(logo);
-// let plusButton = document.createElement("button");
-// header.appendChild(plusButton);
-// let nav = document.createElement("nav");
-// document.body.appendChild(nav);
-// let navOne = document.createElement("a");
-// navOne.innerText = "Board One";
-// let navTwo = document.createElement("a");
-// navTwo.innerText = "Board Two";
-// let navThree = document.createElement("a");
-// navThree.innerText = "Board Three";
-// let main = document.createElement("main");
-// document.body.appendChild(main);
-// let ul = document.createElement("ul");
-// ul.id = "feed";
-// main.appendChild(ul);
-// let footer = document.createElement("footer");
-// document.body.appendChild(footer);
 
 
 function newRequest(subreddit) {
@@ -75,9 +53,11 @@ function newRequest(subreddit) {
 }
 
 function buildCards(data) {
+
+  let ul = document.createElement("ul"); // create ul
+  ul.id = "feed";
   
   data.forEach(function(element, index, array) {
-    // console.log(element);
     let newArticle = document.createElement("li");
     let imgContainer = document.createElement("div");
     imgContainer.className = "img-container";
@@ -124,12 +104,13 @@ function buildCards(data) {
     } else {
     newDescription.innerText = element.data.selftext;
     }
-    newArticle.appendChild(newDescription);      
-    
-    // append to #feed
-    // feed.innerHTML = "";
-    feed.appendChild(newArticle);
+    newArticle.appendChild(newDescription); 
+    ul.appendChild(newArticle);     
   });
+  
+  let main = document.getElementById("main");
+  main.innerHTML = "";
+  main.appendChild(ul);
 }
 
 // event listeners
@@ -138,20 +119,12 @@ function eventListeners() {
 
   function selectBoard() {
     if (event.target.id === "board-one") {
-      console.log("click one");
-      feed.innerHTML = "";
       newRequest("mls");
     } else if (event.target.id === "board-two") {
-      console.log("click two");
-      feed.innerHTML = "";
       newRequest("footballtactics");
     } else if (event.target.id === "board-three") {
-      console.log("click three");
-      feed.innerHTML = "";
       newRequest("worldfootball");
     } else if (event.target.id === "board-four") {
-      console.log("click four");
-      feed.innerHTML = "";
       newRequest("bundesliga");
     }
   }

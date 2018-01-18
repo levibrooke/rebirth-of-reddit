@@ -32,6 +32,13 @@ header {
     font-weight: bold;
     font-size: 24px;
   }
+  button:hover {
+    border-color: #f15c2c;
+    background-color: #f15c2c;
+  }
+  button::after:hover {
+    color: #fff;
+  }
 }
 header::after {
   content: "";

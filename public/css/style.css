@@ -28,6 +28,11 @@ header {
     color: #a84a2b;
     font-weight: bold;
     font-size: 24px; }
+  header button:hover {
+    border-color: #f15c2c;
+    background-color: #f15c2c; }
+  header button::after:hover {
+    color: #fff; }
 
 header::after {
   content: "";
