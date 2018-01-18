@@ -55,7 +55,11 @@ nav {
 
   a {
     color: #777;
-    margin: 0 10px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  a:hover {
   }
 }
 
