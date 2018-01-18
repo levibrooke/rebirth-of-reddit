@@ -64,7 +64,7 @@ footer {
       #feed li p .author::after {
         content: '•';
         padding: 0 5px; }
-      #feed li p .date::after {
+      #feed li p .timestamp::after {
         content: '•';
         padding: 0 5px; }
     #feed li .description {

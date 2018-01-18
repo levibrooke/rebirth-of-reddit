@@ -21,23 +21,6 @@ window.onload = function() {
 
   function defaultFeed() {
     let defaultResponse = JSON.parse(this.response);
-    // console.log(defaultResponse);
-    
-    // let formatDefault = {};
-    // let mlsArray = [];
-
-    // defaultResponse.data.children.map(function(element, index, array) {
-    //   formatDefault.title = element.data.title;
-    //   formatDefault.url = element.data.url;
-    //   formatDefault.author = element.data.author;
-    //   formatDefault.date = element.data.created_utc;
-    //   formatDefault.upvotes = element.data.ups;
-    //   formatDefault.image = element.data.preview.images[0].source.url;
-    //   mlsArray.push(formatDefault);
-      // console.log(formatDefault);
-      // return formatDefault;
-    // });
-    // console.log(formatDefault);
     
     defaultResponse.data.children.forEach(function(element, index, array) {
       console.log(element);
@@ -69,10 +52,14 @@ window.onload = function() {
       newAuthor.className = "author";
       newAuthor.innerHTML = "by " + element.data.author;
       newMeta.appendChild(newAuthor);
-      let newDate = document.createElement("span");
-      newDate.className = "date";
-      newDate.innerText = "posted " + element.data.created_utc;
-      newMeta.appendChild(newDate);
+
+      let newTimestamp = document.createElement("span");
+      let formatTimestamp = moment.unix(element.data.created_utc);
+      formatTimestamp = moment(formatTimestamp).fromNow();
+      newTimestamp.className = "timestamp";
+      newTimestamp.innerText = formatTimestamp;
+      newMeta.appendChild(newTimestamp);
+
       let newUpvotes = document.createElement("span");
       newUpvotes.className = "upvotes";
       newUpvotes.innerText = element.data.ups + " upvotes";
