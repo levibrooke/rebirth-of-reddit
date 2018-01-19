@@ -25,19 +25,25 @@ header {
     right: 20px;
     top: 16px;
     padding: 0 6px 2px;
+    transition: border-color 500ms;
+    transition: background-color 500ms;
   }
   button::after {
     content: '\002B';
     color: #a84a2b;
     font-weight: bold;
     font-size: 24px;
+    transition: color 500ms;
   }
   button:hover {
     border-color: #f15c2c;
     background-color: #f15c2c;
+    transition: border-color 500ms;
+    transition: background-color 500ms;
   }
-  button::after:hover {
+  button:hover:after {
     color: #fff;
+    transition: color 500ms;
   }
 }
 header::after {
@@ -59,14 +65,26 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
 
   a {
     color: #777;
-    padding: 10px;
+    padding: 10px 0;
     position: relative;
     cursor: pointer;
+    transition: color 500ms;
   }
   a:hover {
+    color: #f15c2c;
+    transition: color 500ms;
+  }
+  a:hover:after {
+    color: #777;
+  }
+  a:nth-child(-n+3)::after {
+    content: '•';
+    padding: 0 10px 0 10px;
   }
 }
 
@@ -77,11 +95,6 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-footer {
-  height: 52px;
-  background-color: #222;
 }
 
 #feed {
@@ -99,11 +112,15 @@ padding: 0;
     background-color: #fff;
     height: 400px;
     width: 324px;
-    padding: 24px;
+    padding: 19px;
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: auto;
     margin: 12px 12px 12px 12px;
+    box-shadow: 0 0 20px 0 #333;
+    border: 5px solid #fff;
+    transition: border-color 500ms;
+    font-family: "Lato", sans-serif;
 
     .img-container {
       height: 168px;
@@ -121,29 +138,79 @@ padding: 0;
       overflow: hidden; // truncate title to two lines
       line-height: 20px;
       max-height: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      color: #222;
     }
     p {
       margin: 0 0 10px;
 
       .author {
-
+        
       }
       .author::after {
         content: '•';
         padding: 0 5px;
       }
       .timestamp {
-
+      
       }
       .timestamp::after {
         content: '•';
         padding: 0 5px;
       }
+      .upvotes {
+      
+      }
+    }
+    .post-meta {
+      color: #777;
+      font-size: 14px;
     }
     .description {
       overflow: hidden; // truncate title to four lines
       line-height: 20px;
-      max-height: 60px;
+      max-height: 80px;
     }
+  }
+  li:hover {
+    border-color: #fcb444;
+    transition: border-color 500ms;
+  }
+}
+
+footer {
+  height: 52px;
+  background-color: #222;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    margin: 0 10px;
+  }
+  #facebook-logo {
+    background-image: url(/assets/facebook_grey.svg);
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    transition: background-image 500ms;
+  }
+  #facebook-logo:hover {
+    background-image: url(/assets/facebook_orange.svg);
+    transition: background-image 500ms;
+  }
+  #instagram-logo {
+    background-image: url(/assets/instagram_grey.svg);
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    transition: background-image 500ms;
+  }
+  #instagram-logo:hover {
+    background-image: url(/assets/instagram_orange.svg);
+    transition: background-image 500ms;
   }
 }

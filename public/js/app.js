@@ -32,11 +32,17 @@ function buildStructure() {
   let main = document.createElement("main"); // create main
   main.id = "main";
   container.appendChild(main);
-  // let ul = document.createElement("ul"); // create ul
-  // ul.id = "feed";
-  // main.appendChild(ul);
   let footer = document.createElement("footer"); // create footer
   container.appendChild(footer);
+  let fb = document.createElement("a");
+  fb.id = "facebook-logo";
+  fb.setAttribute("href", "#");
+  footer.appendChild(fb);
+  let ig = document.createElement("a");
+  ig.id = "instagram-logo";
+  ig.setAttribute("href", "#");
+  footer.appendChild(ig);
+  
   body.appendChild(container);
 }
 
