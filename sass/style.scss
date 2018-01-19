@@ -147,22 +147,13 @@ padding: 0;
     p {
       margin: 0 0 10px;
 
-      .author {
-        
-      }
       .author::after {
         content: '•';
         padding: 0 5px;
       }
-      .timestamp {
-      
-      }
       .timestamp::after {
         content: '•';
         padding: 0 5px;
-      }
-      .upvotes {
-      
       }
     }
     .post-meta {

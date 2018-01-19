@@ -1,43 +1,54 @@
 // create structure
 function buildStructure() {
   let body = document.body;
-  let container = document.createElement("div"); // create container
+  let container = document.createElement("div");
   container.id = "container";
-  let header = document.createElement("header"); // create header
+  let header = document.createElement("header");
   container.appendChild(header);
-  let logo = document.createElement("img"); // create header logo
+
+  let logo = document.createElement("img");
   logo.setAttribute("src", "assets/logo.svg");
   header.appendChild(logo);
-  let plusButton = document.createElement("button"); // create header button
+
+  let plusButton = document.createElement("button");
   header.appendChild(plusButton);
-  let nav = document.createElement("nav"); // create nav
+
+  let nav = document.createElement("nav");
   nav.id = "board-nav";
   container.appendChild(nav);
+
   let navOne = document.createElement("a");
   navOne.innerText = "MLS";
   navOne.id = "board-one";
   nav.appendChild(navOne);
+
   let navTwo = document.createElement("a");
   navTwo.innerText = "FootballTactics";
   navTwo.id = "board-two";
   nav.appendChild(navTwo);
+
   let navThree = document.createElement("a");
   navThree.innerText = "WorldFootball";
   navThree.id = "board-three";
   nav.appendChild(navThree);
+
   let navFour = document.createElement("a");
   navFour.innerText = "Random";
   navFour.id = "board-four";
   nav.appendChild(navFour);
-  let main = document.createElement("main"); // create main
+
+  let main = document.createElement("main");
   main.id = "main";
   container.appendChild(main);
-  let footer = document.createElement("footer"); // create footer
+
+  let footer = document.createElement("footer");
   container.appendChild(footer);
+
   let fb = document.createElement("a");
   fb.id = "facebook-logo";
   fb.setAttribute("href", "#");
   footer.appendChild(fb);
+
   let ig = document.createElement("a");
   ig.id = "instagram-logo";
   ig.setAttribute("href", "#");
@@ -45,7 +56,6 @@ function buildStructure() {
   
   body.appendChild(container);
 }
-
 
 function newRequest(subreddit) {
   // populate page w/ default feed
@@ -61,7 +71,7 @@ function newRequest(subreddit) {
 
 function buildCards(data) {
 
-  let ul = document.createElement("ul"); // create ul
+  let ul = document.createElement("ul");
   ul.id = "feed";
   
   data.forEach(function(element, index, array) {
@@ -123,13 +133,13 @@ function buildCards(data) {
 // event listeners
 function eventListeners() {
 
+  document.getElementById("board-nav").addEventListener("click", selectBoard);
+  
   function randomSub() {
     let random = ["bundesliga", "premierleague", "coys", "ussoccer", "soundersfc", "stadiumporn", "assistporn"];
     let num = Math.floor(Math.random() * 7);
     return random[num];
   }
-
-  document.getElementById("board-nav").addEventListener("click", selectBoard);
 
   function selectBoard() {
     if (event.target.id === "board-one") {
