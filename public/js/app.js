@@ -14,19 +14,19 @@ function buildStructure() {
   nav.id = "board-nav";
   container.appendChild(nav);
   let navOne = document.createElement("a");
-  navOne.innerText = "Board One";
+  navOne.innerText = "MLS";
   navOne.id = "board-one";
   nav.appendChild(navOne);
   let navTwo = document.createElement("a");
-  navTwo.innerText = "Board Two";
+  navTwo.innerText = "FootballTactics";
   navTwo.id = "board-two";
   nav.appendChild(navTwo);
   let navThree = document.createElement("a");
-  navThree.innerText = "Board Three";
+  navThree.innerText = "WorldFootball";
   navThree.id = "board-three";
   nav.appendChild(navThree);
   let navFour = document.createElement("a");
-  navFour.innerText = "Board Four";
+  navFour.innerText = "Random";
   navFour.id = "board-four";
   nav.appendChild(navFour);
   let main = document.createElement("main"); // create main
@@ -56,6 +56,7 @@ function newRequest(subreddit) {
     let defaultResponse = JSON.parse(this.response);
     buildCards(defaultResponse.data.children);
   });
+  console.log("You are viewing this subreddit: " + subreddit);
 }
 
 function buildCards(data) {
@@ -121,6 +122,13 @@ function buildCards(data) {
 
 // event listeners
 function eventListeners() {
+
+  function randomSub() {
+    let random = ["bundesliga", "premierleague", "coys", "ussoccer", "soundersfc", "stadiumporn", "assistporn"];
+    let num = Math.floor(Math.random() * 7);
+    return random[num];
+  }
+
   document.getElementById("board-nav").addEventListener("click", selectBoard);
 
   function selectBoard() {
@@ -131,7 +139,7 @@ function eventListeners() {
     } else if (event.target.id === "board-three") {
       newRequest("worldfootball");
     } else if (event.target.id === "board-four") {
-      newRequest("bundesliga");
+      newRequest(randomSub());
     }
   }
 }

@@ -16,6 +16,7 @@ header {
 
   img {
     max-width: 100%;
+    margin: 0 10px;
   }
 
   button {
@@ -212,5 +213,17 @@ footer {
   #instagram-logo:hover {
     background-image: url(/assets/instagram_orange.svg);
     transition: background-image 500ms;
+  }
+}
+
+@media screen and (max-width: 755px) {
+  header::after {
+    background-image: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  header {
+    justify-content: flex-start;
+    margin: 0 20px;
   }
 }
